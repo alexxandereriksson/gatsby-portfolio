@@ -43,7 +43,7 @@ const SecondPage = () => {
                 <p className="parra">{edge.node.coursetext}</p>
               </li>
               <div className="button">
-                <Link to={`/portfolio/${edge.node.slug}/`}>Read More</Link>
+                <Link to={`/kurser/${edge.node.slug}`}>Read More</Link>
               </div>
             </>
           )

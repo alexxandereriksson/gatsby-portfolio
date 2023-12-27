@@ -28,7 +28,7 @@ const BlogPost = ({ data }) => {
           image={course.imageOfCourse.gatsbyImageData}
           alt={course.heading}
         />
-         <p>{course.coursetext}</p>
+        <p>{course.coursetext}</p>
       </div>
     </Layout>
   )
