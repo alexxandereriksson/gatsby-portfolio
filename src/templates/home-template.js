@@ -1,5 +1,5 @@
 import React from "react"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 // import { renderRichText } from "gatsby-source-contentful/rich-text"
 // import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
@@ -24,12 +24,12 @@ const HomeTemplate = contentfulPage => {
   //   }
   return (
     <section className="container">
-      <h2>{contentfulPage.title}</h2>
-
-      <div className="row">
+      <div className="row" style={{ marginTop: "5vh" }}>
         <div className="col-md-6">
           <div className="textContent">
-            <div className="textName">Frontend student</div>
+            <div className="textName" style={{ marginBottom: "5vh" }}>
+              Frontend student
+            </div>
             <div className="textInfo">
               Hej, jag heter Alexander och studerar andra året på it-högskolan i
               Stockholm.
@@ -43,7 +43,13 @@ const HomeTemplate = contentfulPage => {
             <button className="myBtn primary">
               <a href="https://github.com/alexxandereriksson">Github</a>
             </button>
-            <button className="myBtn secondary">Mina projekt</button>
+            <button className="myBtn secondary">
+              {" "}
+              <Link style={{ color: "white" }} to={"/portfolio"}>
+                {" "}
+                Mina projekt
+              </Link>
+            </button>
           </div>
         </div>
 

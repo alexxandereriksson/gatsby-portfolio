@@ -6,13 +6,7 @@ const Header = () => {
   const navbar = useMenu()
   return (
     <div>
-      <nav
-        className="navbar navbar-expand-lg navbar-dark  customNavbar"
-
-      >
-        <a className="navbar-brand" href="http://localhost:8000/">
-          AE
-        </a>
+      <nav className="navbar navbar-expand-lg navbar-dark  customNavbar">
         <button
           className="navbar-toggler"
           type="button"

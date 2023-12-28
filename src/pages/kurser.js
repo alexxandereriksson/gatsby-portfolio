@@ -25,30 +25,38 @@ const SecondPage = () => {
 
   return (
     <Layout>
-      <h1>Välkommen till sidan om mina kurser</h1>
-      <p>
+      <h1 className="text-center">Välkommen till sidan om mina kurser</h1>
+      <p className="text-center" style={{paddingTop:'10vh'}}>
         Här nedanför visar jag upp vilka kurser som jag gått på It-högskolan
       </p>
 
-      <ul className="posts">
+      <div className="container">
         {data.allContentfulCourse.edges.map(edge => {
           return (
             <>
-              <li className="post" key={edge.node.heading}>
-                <h2>{edge.node.heading}</h2>
-                <GatsbyImage
-                  alt={edge.node.heading}
-                  image={edge.node.imageOfCourse.gatsbyImage}
-                ></GatsbyImage>
-                <p className="parra">{edge.node.coursetext}</p>
-              </li>
-              <div className="button">
+              <ul className="row" key={edge.node.heading}>
+                <div className="col-12 text-center"key={edge.node.heading}>
+                  <h2>{edge.node.heading} </h2>
+                </div>
+                <div className="col-12 text-center">
+                  <GatsbyImage
+                    alt={edge.node.heading}
+                    image={edge.node.imageOfCourse.gatsbyImage}
+                  ></GatsbyImage>
+                    <p className="parra">{edge.node.coursetext}</p>
+                </div>
+
+                <div className="col-6">
+
+                </div>
+              </ul>
+              <div className="button text-center">
                 <Link to={`/kurser/${edge.node.slug}`}>Read More</Link>
               </div>
             </>
           )
         })}
-      </ul>
+      </div>
       <Link to="/">Go back to the homepage</Link>
     </Layout>
   )
