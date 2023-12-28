@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@100;200;300;400;500;600;700;800;900&display=swap");
+:root {
+  --myFont: "Big Shoulders Display", sans-serif;
+}
 body {
   background-color: #222222;
   color: white;
@@ -22,8 +26,8 @@ body {
   border-color: #222;
   background-color: #222;
 }
- .customNavbar {
-  background-color: #202C59;
+.customNavbar {
+  background-color: #202c59;
 }
 section {
   background-color: #222222;
@@ -47,4 +51,62 @@ section {
   z-index: 1;
   left: 15px;
   top: 15px;
+}
+
+/* Textinfo Homepage */
+.textContent {
+  padding-top: 10vh;
+}
+.textName {
+  color: #dbd9d8;
+  font-family: var(--myFont);
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: underline;
+}
+.textInfo {
+  max-width: 28.9375rem;
+  font-family: Big Shoulders Display;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  background: linear-gradient(180deg, #fff 0%, #d95d39 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.myButtonscontainer {
+  display: flex;
+  gap: 0.625rem;
+  padding-top: 1.25rem;
+}
+.myBtn {
+  width: 11.4375rem;
+  padding: 0.3125rem 1.5625rem;
+
+  border-radius: 0.5rem;
+  border: 1px solid #000;
+  background: #d95d39;
+  color: #fff;
+  font-family: var(--myFont);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.secondary {
+  border-radius: 0.5rem;
+  border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0);
+}
+a {
+  text-decoration: none;
+  color: #000;
+}
+a:hover {
+  text-decoration: underline;
+  color: #c7cdc9;
 }

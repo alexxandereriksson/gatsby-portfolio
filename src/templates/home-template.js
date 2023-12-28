@@ -1,33 +1,66 @@
 import React from "react"
 // import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-
+// import { renderRichText } from "gatsby-source-contentful/rich-text"
+// import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
 const HomeTemplate = contentfulPage => {
+  //   const options = {
+  //     renderMark: {
+  //       [MARKS.BOLD]: text => <b className="font-bold">{text}</b>,
+  //     },
+  //     renderNode: {
+  //       [INLINES.HYPERLINK]: (node, children) => {
+  //         const { uri } = node.data
+  //         return (
+  //           <a href={uri} className="underline">
+  //             {children}
+  //           </a>
+  //         )
+  //       },
+  //       [BLOCKS.HEADING_2]: (node, children) => {
+  //         return <h2>{children}</h2>
+  //       },
+  //     },
+  //   }
   return (
     <section className="container">
-    <h2>{contentfulPage.title}</h2>
+      <h2>{contentfulPage.title}</h2>
 
-    <div className="row">
-      <div className="col-md-6">
-        {/* Content for the first column */}
-        Hello mamam
-        {contentfulPage.raw}
-      </div>
+      <div className="row">
+        <div className="col-md-6">
+          <div className="textContent">
+            <div className="textName">Frontend student</div>
+            <div className="textInfo">
+              Hej, jag heter Alexander och studerar andra året på it-högskolan i
+              Stockholm.
+            </div>
+          </div>
+          {/* Content for the first column */}
 
-      <div className="col-md-6">
-        {/* Content for the second column */}
-        <div className="myBorder">
-          {contentfulPage.image && (
-            <GatsbyImage
-              className="heroImage"
-              image={contentfulPage.image.gatsbyImage}
-              alt={contentfulPage.title}
-            />
-          )}
+          {/* {contentfulPage.raw} */}
+          {/* <div>{renderRichText(contentfulPage.content, options)}</div> */}
+          <div className="myButtonscontainer">
+            <button className="myBtn primary">
+              <a href="https://github.com/alexxandereriksson">Github</a>
+            </button>
+            <button className="myBtn secondary">Mina projekt</button>
+          </div>
+        </div>
+
+        <div className="col-md-6">
+          {/* Content for the second column */}
+          <div className="myBorder">
+            {contentfulPage.image && (
+              <GatsbyImage
+                className="heroImage"
+                image={contentfulPage.image.gatsbyImage}
+                alt={contentfulPage.title}
+              />
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   )
 }
 
