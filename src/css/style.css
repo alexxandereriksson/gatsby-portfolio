@@ -110,3 +110,11 @@ a:hover {
   text-decoration: underline;
   color: #c7cdc9;
 }
+/* Portfolio image */
+.loremImage{
+    background-image: url('../images/Lorem.png');
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+
+}
