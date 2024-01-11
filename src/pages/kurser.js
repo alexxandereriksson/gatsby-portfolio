@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
-// import { renderRichtext } from "gatsby-source-contentful/rich-text"
+
 
 //sidans namn blir portfolio efter namnet på javascript-filen
 const SecondPage = () => {
@@ -14,7 +14,7 @@ const SecondPage = () => {
             heading
             slug
             imageOfCourse {
-              gatsbyImage(width: 200)
+              gatsbyImage(width: 1200)
             }
             coursetext
           }
@@ -62,6 +62,6 @@ const SecondPage = () => {
   )
 }
 
-export const Head = () => <title>Portfolio Page</title>
+export const Head = () => <title>Kurser Page</title>
 
 export default SecondPage

@@ -1,19 +1,56 @@
 import React from "react"
-
+import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 const Portfoliotemplate = contentfulPage => {
-  return (
-    <div class="container">
-      <h2 className="portfolioTitle textInfo">{contentfulPage.title}</h2>
+  const data = useStaticQuery(graphql`
+    query {
+      allContentfulProjects(sort: { createdAt: ASC }) {
+        edges {
+          node {
+            title
+            projectDescription
+            projectImage {
+              gatsbyImageData(width: 560)
+            }
+          }
+        }
+      }
+    }
+  `)
 
-      <div class="row" style={{ marginBottom: "5rem" }}>
-        <div class="col-sm-6 ">
+  return (
+    <div className="container">
+      <h2 className="portfolioTitle textInfo">{contentfulPage.title} okok</h2>
+      {data.allContentfulProjects.edges.map((edge, index) => {
+        return (
+          <div key={index}>
+            <div className="row" style={{ marginBottom: "5rem" }}>
+              <div className="col-sm-6">
+                <div>
+                  <GatsbyImage
+                    alt={edge.node.title}
+                    image={edge.node.projectImage.gatsbyImageData}
+                  ></GatsbyImage>
+                </div>
+              </div>
+              <div className="col-sm-6">
+                <div className="container textInfo textContent">
+                  {edge.node.title}
+                </div>
+                <div className="container textContent portfolioText">
+                  {edge.node.projectDescription}
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      })}
+      {/* <div className="row" style={{ marginBottom: "5rem" }}>
+        <div className="col-sm-6 ">
           <div className="loremImage"></div>
         </div>
-        <div class="col-sm-6">
-          <div className="container textInfo textContent">
-            {" "}
-            Lorem Ipsum resturang
-          </div>
+        <div className="col-sm-6">
+          <div className="container textInfo textContent">Lorem Resturant</div>
           <div className="container textContent portfolioText">
             {" "}
             En sida där man enkelt kan boka bord och mat för att sedan anlända
@@ -22,11 +59,11 @@ const Portfoliotemplate = contentfulPage => {
           </div>
         </div>
       </div>
-      <div class="row" style={{ marginBottom: "5rem" }}>
-        <div class="col">
+      <div className="row" style={{ marginBottom: "5rem" }}>
+        <div className="col">
           <div className="sunImage"></div>
         </div>
-        <div class="col">
+        <div className="col">
           <div className="container textInfo textContent"> Sunshine Villa</div>
           <div className="container textContent portfolioText">
             {" "}
@@ -37,11 +74,11 @@ const Portfoliotemplate = contentfulPage => {
           </div>
         </div>
       </div>
-      <div class="row" style={{ marginBottom: "5rem" }}>
-        <div class="col">
+      <div className="row" style={{ marginBottom: "5rem" }}>
+        <div className="col">
           <div className="shoeImage"></div>
         </div>
-        <div class="col">
+        <div className="col">
           <div className="container textInfo textContent"> Shoeman</div>
           <div className="container textContent portfolioText">
             {" "}
@@ -50,7 +87,7 @@ const Portfoliotemplate = contentfulPage => {
             e-handels produkt. Byggd och designad i Figma.{" "}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }

@@ -1,27 +1,27 @@
 import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-// import { renderRichText } from "gatsby-source-contentful/rich-text"
-// import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
+import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
 const HomeTemplate = contentfulPage => {
-  //   const options = {
-  //     renderMark: {
-  //       [MARKS.BOLD]: text => <b className="font-bold">{text}</b>,
-  //     },
-  //     renderNode: {
-  //       [INLINES.HYPERLINK]: (node, children) => {
-  //         const { uri } = node.data
-  //         return (
-  //           <a href={uri} className="underline">
-  //             {children}
-  //           </a>
-  //         )
-  //       },
-  //       [BLOCKS.HEADING_2]: (node, children) => {
-  //         return <h2>{children}</h2>
-  //       },
-  //     },
-  //   }
+  const options = {
+    renderMark: {
+      [MARKS.BOLD]: text => <b className="font-bold">{text}</b>,
+    },
+    renderNode: {
+      [INLINES.HYPERLINK]: (node, children) => {
+        const { uri } = node.data
+        return (
+          <a href={uri} className="underline">
+            {children}
+          </a>
+        )
+      },
+      [BLOCKS.HEADING_2]: (node, children) => {
+        return <h2>{children}</h2>
+      },
+    },
+  }
   return (
     <section className="container">
       <div className="row" style={{ marginTop: "5vh" }}>
@@ -31,14 +31,13 @@ const HomeTemplate = contentfulPage => {
               Frontend student
             </div>
             <div className="textInfo">
-              Hej, jag heter Alexander och studerar andra året på it-högskolan i
-              Stockholm.
+              {/* {contentfulPage.raw} */}
+          <div>{renderRichText(contentfulPage.content, options)}</div>
             </div>
           </div>
           {/* Content for the first column */}
 
-          {/* {contentfulPage.raw} */}
-          {/* <div>{renderRichText(contentfulPage.content, options)}</div> */}
+
           <div className="myButtonscontainer">
             <button className="myBtn primary">
               <a href="https://github.com/alexxandereriksson">Github</a>
