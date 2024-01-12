@@ -20,7 +20,7 @@ const Portfoliotemplate = contentfulPage => {
 
   return (
     <div className="container">
-      <h2 className="portfolioTitle textInfo">{contentfulPage.title} okok</h2>
+      <h2 className="portfolioTitle textInfo">{contentfulPage.title}</h2>
       {data.allContentfulProjects.edges.map((edge, index) => {
         return (
           <div key={index}>
