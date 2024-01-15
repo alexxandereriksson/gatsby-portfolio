@@ -3,7 +3,6 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 
-
 //sidans namn blir portfolio efter namnet på javascript-filen
 const SecondPage = () => {
   const data = useStaticQuery(graphql`
@@ -25,39 +24,50 @@ const SecondPage = () => {
 
   return (
     <Layout>
-      <h1 className="text-center">Välkommen till sidan om mina kurser</h1>
-      <p className="text-center" style={{paddingTop:'10vh'}}>
-        Här nedanför visar jag upp vilka kurser som jag gått på It-högskolan
-      </p>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <h1 className="text-center textContent textInfo">
+          Välkommen till sidan om mina kurser
+        </h1>
+      </div>
 
       <div className="container">
-        {data.allContentfulCourse.edges.map(edge => {
+        {data.allContentfulCourse.edges.map((edge, index) => {
           return (
-            <>
-              <ul className="row" key={edge.node.heading}>
-                <div className="col-12 text-center"key={edge.node.heading}>
-                  <h2>{edge.node.heading} </h2>
+            <div key={index}>
+              <div className="row" style={{ marginBottom: "5rem" }}>
+                <div className="col-sm-6">
+                  <div className="container textContent textInfo text-center">
+                    {edge.node.heading}
+                  </div>
+                  <div className="container textContent portfolioText text-center">
+                    {edge.node.coursetext}
+                  </div>
+                  <div className=" container button">
+                    <Link to={`/kurser/${edge.node.slug}`}>
+                      Läs mer om kursen
+                    </Link>
+                  </div>
                 </div>
-                <div className="col-12 text-center">
+                <div className="col-sm-6 text-center">
                   <GatsbyImage
                     alt={edge.node.heading}
                     image={edge.node.imageOfCourse.gatsbyImage}
                   ></GatsbyImage>
-                    <p className="parra">{edge.node.coursetext}</p>
                 </div>
-
-                <div className="col-6">
-
-                </div>
-              </ul>
-              <div className="button text-center">
-                <Link to={`/kurser/${edge.node.slug}`}>Read More</Link>
               </div>
-            </>
+            </div>
           )
         })}
       </div>
-      <Link to="/">Go back to the homepage</Link>
+      <div className=" container button">
+        <Link to="/">Tillbaka till förstasidan</Link>
+      </div>
     </Layout>
   )
 }

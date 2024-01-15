@@ -31,7 +31,7 @@ const HomeTemplate = contentfulPage => {
               Frontend student
             </div>
             <div className="textInfo">
-              {/* {contentfulPage.raw} */}
+
           <div>{renderRichText(contentfulPage.content, options)}</div>
             </div>
           </div>
@@ -68,5 +68,5 @@ const HomeTemplate = contentfulPage => {
     </section>
   )
 }
-
+export const Head = () => <title>Home Page</title>
 export default HomeTemplate
