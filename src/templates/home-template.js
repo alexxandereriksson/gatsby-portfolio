@@ -3,7 +3,11 @@ import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { Helmet } from "react-helmet"
 const HomeTemplate = contentfulPage => {
+
+    
+    // Render richtextoptions
   const options = {
     renderMark: {
       [MARKS.BOLD]: text => <b className="font-bold">{text}</b>,
@@ -23,50 +27,57 @@ const HomeTemplate = contentfulPage => {
     },
   }
   return (
-    <section className="container">
-      <div className="row" style={{ marginTop: "5vh" }}>
-        <div className="col-md-6">
-          <div className="textContent">
-            <div className="textName" style={{ marginBottom: "5vh" }}>
-              Frontend student
+    <>
+      <Helmet>
+        <title>Homepage</title>
+        <meta
+          name="description"
+          content="this page is for my portfolio items"
+        />
+      </Helmet>
+      <section className="container">
+        <div className="row" style={{ marginTop: "5vh" }}>
+          <div className="col-md-6">
+            <div className="textContent">
+              <div className="textName" style={{ marginBottom: "5vh" }}>
+                Frontend student
+              </div>
+              <div className="textInfo">
+                <div>{renderRichText(contentfulPage.content, options)}</div>
+              </div>
             </div>
-            <div className="textInfo">
+            {/* Content for the first column */}
 
-          <div>{renderRichText(contentfulPage.content, options)}</div>
-            </div>
-          </div>
-          {/* Content for the first column */}
-
-
-          <div className="myButtonscontainer">
-            <button className="myBtn primary">
-              <a href="https://github.com/alexxandereriksson">Github</a>
-            </button>
-            <button className="myBtn secondary">
-              {" "}
-              <Link style={{ color: "white" }} to={"/portfolio"}>
+            <div className="myButtonscontainer">
+              <button className="myBtn primary">
+                <a href="https://github.com/alexxandereriksson">Github</a>
+              </button>
+              <button className="myBtn secondary">
                 {" "}
-                Mina projekt
-              </Link>
-            </button>
+                <Link style={{ color: "white" }} to={"/portfolio"}>
+                  {" "}
+                  Mina projekt
+                </Link>
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div className="col-md-6">
-          {/* Content for the second column */}
-          <div className="myBorder">
-            {contentfulPage.image && (
-              <GatsbyImage
-                className="heroImage"
-                image={contentfulPage.image.gatsbyImage}
-                alt={contentfulPage.title}
-              />
-            )}
+          <div className="col-md-6">
+            {/* Content for the second column */}
+            <div className="myBorder">
+              {contentfulPage.image && (
+                <GatsbyImage
+                  className="heroImage"
+                  image={contentfulPage.image.gatsbyImage}
+                  alt={contentfulPage.title}
+                />
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }
-export const Head = () => <title>Home Page</title>
+
 export default HomeTemplate

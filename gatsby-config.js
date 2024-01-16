@@ -19,6 +19,7 @@ module.exports = {
     siteUrl: `http://dummy-site.com`,
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -49,7 +50,7 @@ module.exports = {
         // https://css-tricks.com/meta-theme-color-and-trickery/
         // theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/shoeman.png`, // This path is relative to the root of the site.
+        icon: `src/images/A-Logo.png`, // This path is relative to the root of the site.
       },
     },
   ],

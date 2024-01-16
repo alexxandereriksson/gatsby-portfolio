@@ -55,7 +55,7 @@ const SecondPage = () => {
                   </div>
                 </div>
                 <div className="col-sm-6 text-center">
-                  <GatsbyImage
+                  <GatsbyImage className="gatsbyImage"
                     alt={edge.node.heading}
                     image={edge.node.imageOfCourse.gatsbyImage}
                   ></GatsbyImage>
@@ -72,6 +72,6 @@ const SecondPage = () => {
   )
 }
 
-export const Head = () => <title>Kurser Page</title>
-
 export default SecondPage
+
+export const Head = () => <title>Kompetenser</title>

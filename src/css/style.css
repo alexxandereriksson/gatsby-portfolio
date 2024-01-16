@@ -131,6 +131,9 @@ section {
   border: 1px solid #fff;
   background: rgba(255, 255, 255, 0);
 }
+.portfolioButton {
+  justify-content: center;
+}
 a {
   text-decoration: none;
   color: #000;
@@ -177,4 +180,8 @@ a:hover {
 }
 .nav-link:hover {
   background-size: 0 3px, 100% 3px;
+}
+
+.gatsbyImage {
+  margin: 15vh;
 }
