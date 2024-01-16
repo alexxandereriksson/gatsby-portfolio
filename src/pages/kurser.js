@@ -2,9 +2,14 @@ import * as React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
-
+import { useEffect, useState } from "react"
 //sidans namn blir portfolio efter namnet på javascript-filen
+
 const SecondPage = () => {
+  const [isClient, setIsClient] = useState(false)
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
   const data = useStaticQuery(graphql`
     query {
       allContentfulCourse(sort: { createdAt: ASC }) {
@@ -13,7 +18,7 @@ const SecondPage = () => {
             heading
             slug
             imageOfCourse {
-              gatsbyImage(width: 1200)
+              gatsbyImageData(width: 1200)
             }
             coursetext
           }
@@ -55,11 +60,13 @@ const SecondPage = () => {
                   </div>
                 </div>
                 <div className="col-sm-6 text-center">
-                  <GatsbyImage
-                    className="gatsbyImage"
-                    alt={edge.node.heading}
-                    image={edge.node.imageOfCourse.gatsbyImage}
-                  ></GatsbyImage>
+                  {isClient && (
+                    <GatsbyImage
+                      className="gatsbyImage"
+                      alt={edge.node.heading}
+                      image={edge.node.imageOfCourse.gatsbyImageData}
+                    />
+                  )}
                 </div>
               </div>
             </div>

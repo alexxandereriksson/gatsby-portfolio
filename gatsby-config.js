@@ -18,6 +18,9 @@ module.exports = {
     author: `Alexander Eriksson`,
     siteUrl: `http://dummy-site.com`,
   },
+  flags: {
+    DEV_SSR: true,
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
