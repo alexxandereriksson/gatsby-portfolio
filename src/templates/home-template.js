@@ -6,7 +6,7 @@ import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { Helmet } from "react-helmet"
 const HomeTemplate = contentfulPage => {
 
-    
+
     // Render richtextoptions
   const options = {
     renderMark: {
@@ -40,13 +40,12 @@ const HomeTemplate = contentfulPage => {
           <div className="col-md-6">
             <div className="textContent">
               <div className="textName" style={{ marginBottom: "5vh" }}>
-                Frontend student
+               {contentfulPage.heading}
               </div>
               <div className="textInfo">
                 <div>{renderRichText(contentfulPage.content, options)}</div>
               </div>
             </div>
-            {/* Content for the first column */}
 
             <div className="myButtonscontainer">
               <button className="myBtn primary">

@@ -3,15 +3,31 @@ import { Helmet } from "react-helmet"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
-const AboutTemplate = contentfulPage => {
+import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
+const ContactTemplate = contentfulPage => {
+  const options = {
+    renderMark: {
+      [MARKS.BOLD]: text => <b className="font-bold">{text}</b>,
+    },
+    renderNode: {
+      [INLINES.HYPERLINK]: (node, children) => {
+        const { uri } = node.data
+        return (
+          <a href={uri} className="myBtn secondary">
+            {children}
+          </a>
+        )
+      },
+      [BLOCKS.HEADING_2]: (node, children) => {
+        return <h2>{children}</h2>
+      },
+    },
+  }
   return (
     <>
       <Helmet>
-        <title>Om mig</title>
-        <meta
-          name="description"
-          content="this page is for my portfolio items"
-        />
+        <title>Kontakta mig</title>
+        <meta name="description" content="kontakt sida" />
       </Helmet>
       <section className="container">
         <div className="row" style={{ marginTop: "0vh" }}>
@@ -33,7 +49,7 @@ const AboutTemplate = contentfulPage => {
                 {contentfulPage.title}
               </div>
               <div className="aboutmeText">
-                <p>{renderRichText(contentfulPage.content)}</p>
+                <p>{renderRichText(contentfulPage.content, options)}</p>
               </div>
             </div>
           </div>
@@ -46,4 +62,4 @@ const AboutTemplate = contentfulPage => {
   )
 }
 
-export default AboutTemplate
+export default ContactTemplate

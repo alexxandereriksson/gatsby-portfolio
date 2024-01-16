@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import AboutTemplate from "../templates/about-template"
 import HomeTemplate from "../templates/home-template"
 import Portfoliotemplate from "../templates/portfolio-template"
+import ContactTemplate from "../templates/contact-template"
 
 // Tar in graphQL data props.
 const Page = ({ data }) => {
@@ -14,12 +15,14 @@ const Page = ({ data }) => {
   const getTemplate = contentfulPage => {
     // Kollar om contentful.template finns och om i sådanafall returnera min Component-template.
     switch (contentfulPage.template) {
+      case "contact":
+        return <ContactTemplate {...contentfulPage} />
       case "about":
         return <AboutTemplate {...contentfulPage} />
       case "portfolio":
         return <Portfoliotemplate {...contentfulPage} />
       default:
-       //Om ingen specifik mall matchar, rendera HomeTemplate med contentfulPage-egenskaperna.
+        //Om ingen specifik mall matchar, rendera HomeTemplate med contentfulPage-egenskaperna.
         return <HomeTemplate {...contentfulPage} />
     }
   }
@@ -35,6 +38,7 @@ export const data = graphql`
       }
       url
       title
+      heading
       template
       image {
         gatsbyImage(width: 468, height: 540)

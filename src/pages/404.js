@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 //i dev mode overridas denna sida av en inbyggd 404-sida
 const NotFoundPage = () => (
   <Layout>
-    <div className="container text-center"style={{ marginTop: "5rem" }}>
+    <div className="container text-center" style={{ marginTop: "5rem" }}>
       {" "}
       <h1>404: Sidan hittades inte</h1>
       <h2>Sidan du försöker gå till existerar inte. </h2>
@@ -16,10 +16,7 @@ const NotFoundPage = () => (
   </Layout>
 )
 
-export const Head = () => <title>Portfolio Page</title>
+export const Head = () => <title>404: Page not found</title>
 
 export default NotFoundPage
 
-// f. 404-sida
-// Med lämpligt felmeddelande (som användaren förstår) och länk till
-// startsidan
