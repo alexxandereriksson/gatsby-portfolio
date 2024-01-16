@@ -33,7 +33,7 @@ const AboutTemplate = contentfulPage => {
                 {contentfulPage.title}
               </div>
               <div className="aboutmeText">
-                <p>{renderRichText(contentfulPage.content)}</p>
+                <div>{renderRichText(contentfulPage.content)}</div>
               </div>
             </div>
           </div>
