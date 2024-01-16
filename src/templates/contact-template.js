@@ -49,7 +49,7 @@ const ContactTemplate = contentfulPage => {
                 {contentfulPage.title}
               </div>
               <div className="aboutmeText">
-                <p>{renderRichText(contentfulPage.content, options)}</p>
+                <div>{renderRichText(contentfulPage.content, options)}</div>
               </div>
             </div>
           </div>
