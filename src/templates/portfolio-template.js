@@ -37,12 +37,13 @@ const Portfoliotemplate = contentfulPage => {
               <div className="row" style={{ marginBottom: "5rem" }}>
                 <div className="col-sm-6">
                   <div>
-                    {edge.node.projectImage.gatsbyImageData && (
+                    
                       <GatsbyImage
                         alt={edge.node.title}
                         image={edge.node.projectImage.gatsbyImageData}
                       ></GatsbyImage>
-                    )}
+
+
                   </div>
                 </div>
                 <div className="col-sm-6">

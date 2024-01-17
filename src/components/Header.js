@@ -8,13 +8,13 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark  customNavbar">
       <div className="container-fluid">
-        <Link className="navbar-brand" href="/">
+        <Link className="navbar-brand" to="/">
           <img
             src={Logo}
             alt="Logo"
             width="30"
             height="30"
-            class="d-inline-block align-text-top"
+            className="d-inline-block align-text-top"
           />
         </Link>
         <button
