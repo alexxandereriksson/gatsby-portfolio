@@ -3,6 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import { useEffect, useState } from "react"
+import { Helmet } from "react-helmet"
 //sidans namn blir portfolio efter namnet på javascript-filen
 
 const SecondPage = () => {
@@ -18,7 +19,7 @@ const SecondPage = () => {
             heading
             slug
             imageOfCourse {
-              gatsbyImageData(width: 1200)
+              gatsbyImageData(width: 1080)
             }
             coursetext
           }
@@ -28,55 +29,64 @@ const SecondPage = () => {
   `)
 
   return (
-    <Layout>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <h1 className="text-center textContent textInfo">
-          Välkommen till sidan om mina kurser
-        </h1>
-      </div>
+    <>
+      <Helmet>
+        <title>Kompetenser</title>
+        <meta
+          name="description"
+          content="Den här sidan visar bilka kursen jag tagit på It-högskolan"
+        />
+      </Helmet>
+      <Layout>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <h1 className="text-center textContent textInfo">
+            Välkommen till sidan om mina kurser
+          </h1>
+        </div>
 
-      <div className="container">
-        {data.allContentfulCourse.edges.map((edge, index) => {
-          return (
-            <div key={index}>
-              <div className="row" style={{ marginBottom: "5rem" }}>
-                <div className="col-sm-6">
-                  <div className="container textContent textInfo text-center">
-                    {edge.node.heading}
+        <div className="container">
+          {data.allContentfulCourse.edges.map((edge, index) => {
+            return (
+              <div key={index}>
+                <div className="row" style={{ marginBottom: "1.5rem" }}>
+                  <div className="col-sm-6">
+                    <div className="container textContent textInfo text-center">
+                     <h1> {edge.node.heading}</h1>
+                    </div>
+                    <div className="container textContent portfolioText text-center">
+                      {edge.node.coursetext}
+                    </div>
+                    <div className=" container button">
+                      <Link to={`/kurser/${edge.node.slug}`}>
+                        Läs mer om kursen
+                      </Link>
+                    </div>
                   </div>
-                  <div className="container textContent portfolioText text-center">
-                    {edge.node.coursetext}
+                  <div className="col-sm-6 text-center">
+                    {isClient && (
+                      <GatsbyImage
+                        className="gatsbyImage"
+                        alt={edge.node.heading}
+                        image={edge.node.imageOfCourse.gatsbyImageData}
+                      />
+                    )}
                   </div>
-                  <div className=" container button">
-                    <Link to={`/kurser/${edge.node.slug}`}>
-                      Läs mer om kursen
-                    </Link>
-                  </div>
-                </div>
-                <div className="col-sm-6 text-center">
-                  {isClient && (
-                    <GatsbyImage
-                      className="gatsbyImage"
-                      alt={edge.node.heading}
-                      image={edge.node.imageOfCourse.gatsbyImageData}
-                    />
-                  )}
                 </div>
               </div>
-            </div>
-          )
-        })}
-      </div>
-      <div className=" container button">
-        <Link to="/">Tillbaka till förstasidan</Link>
-      </div>
-    </Layout>
+            )
+          })}
+        </div>
+        <div className=" container button">
+          <Link to="/">Tillbaka till förstasidan</Link>
+        </div>
+      </Layout>
+    </>
   )
 }
 

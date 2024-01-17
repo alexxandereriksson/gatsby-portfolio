@@ -1,12 +1,22 @@
 import React from "react"
 import useMenu from "../hooks/use-menu"
 import { Link } from "gatsby"
+import Logo from "../images/A-Logo.png"
 
 const Header = () => {
   const navbar = useMenu()
   return (
     <nav className="navbar navbar-expand-lg navbar-dark  customNavbar">
       <div className="container-fluid">
+        <Link className="navbar-brand" href="/">
+          <img
+            src={Logo}
+            alt="Logo"
+            width="30"
+            height="30"
+            class="d-inline-block align-text-top"
+          />
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -22,9 +32,11 @@ const Header = () => {
           <ul className="navbar-nav">
             {navbar.map(({ node }, index) => (
               <li className="nav-item" key={index}>
-                <Link className="nav-link" to={node.url}>
-                  {node.title}
-                </Link>
+                {node.url !== "/404" && (
+                  <Link className="nav-link" to={node.url}>
+                    {node.title}
+                  </Link>
+                )}
               </li>
             ))}
             <li className="nav-item active">

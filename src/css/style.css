@@ -10,24 +10,33 @@ body {
 #navbarNavDropdown {
   justify-content: center;
 }
-.nav-link a {
-  background: linear-gradient(to right, rgb(248, 249, 249), rgb(255, 255, 255)),
+a.nav-link {
+  background: linear-gradient(to right, rgb(248, 249, 249), rgb(247, 247, 247)),
     linear-gradient(
       to right,
-      rgba(255, 0, 0, 1),
-      rgba(255, 0, 180, 1),
-      rgba(0, 100, 200, 1)
+      rgb(217, 93, 57),
+      rgb(217, 93, 57) /* rgb(2, 2, 2) */ /* rgb(228, 139, 139) */
     );
-  background-size: 100% 3px, 0 3px;
+  background-size: 100% 0px, 0 0px;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
-  transition: background-size 400ms;
+  transition: background-size 300ms;
+  /* Kolla upp focus element för att få det att stanna. */
 }
-.nav-link:hover {
-  background-size: 0 3px, 100% 3px;
+a.nav-link:hover {
+  background-size: 90% 0px, 100% 100%;
 }
 
-
+a:active {
+  color: red;
+}
+a.nav-link {
+  font-family: var(--myFont);
+  font-size: 1.5rem;
+}
+li{
+    list-style: none;
+}
 
 /*-------------- CSS FOR TEXT ------------------*/
 .textContent {
@@ -79,6 +88,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 .aboutmeText {
+  padding-top: 5rem;
   max-width: 28.9375rem;
   font-family: Big Shoulders Display;
   font-size: 2rem;
@@ -92,6 +102,14 @@ body {
 }
 .portfolioText {
   letter-spacing: 0.1rem;
+}
+.four{
+    color: #dbd9d8;
+    font-family: var(--myFont);
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 /* -----------end of text css--------------------- */
 /* -----------------CSS FÖR KNAPP ------------------ */
@@ -115,6 +133,7 @@ body {
   background-color: #222;
   border: 1px solid #555;
   padding: 12px 16px;
+  border-radius: 8px;
 }
 .myButtonscontainer {
   display: flex;
@@ -144,14 +163,15 @@ body {
 .portfolioButton {
   justify-content: center;
 }
-a {
+.btnTag {
   text-decoration: none;
   color: #000;
 }
-a:hover {
+.btnTag:hover {
   text-decoration: underline;
   color: #c7cdc9;
 }
+
 /* ----------------end of button css------------------------------- */
 
 /*-------------- Portfolio image ----------------*/

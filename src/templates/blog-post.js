@@ -29,22 +29,26 @@ const BlogPost = ({ data }) => {
     <React.Fragment>
       <Helmet>
         <title>{course.heading}</title>
-        <meta
-          name="description"
-          content="this page is for my portfolio items"
-        />
+        <meta name="description" content={course.coursetext} />
       </Helmet>
       <Layout>
-        <Link to="/kurser/">Visit the Blog Page</Link>
-        <div className="content">
-          <h1>{course.heading}</h1>
-          {isClient && course.imageOfCourse && (
-            <GatsbyImage
-              image={course.imageOfCourse.gatsbyImageData}
-              alt={course.heading}
-            />
-          )}
-          <p>{course.coursetext}</p>
+        <div className="container text-center">
+          <div className="four" style={{marginTop:"15vh"}}>
+            <h1>{course.heading}</h1>
+            </div>
+
+            {isClient && course.imageOfCourse && (
+              <GatsbyImage
+                image={course.imageOfCourse.gatsbyImageData}
+                alt={course.heading}
+              />
+            )}
+            <p>{course.coursetext}</p>
+          <div className=" container button">
+            <Link className="btnTag" to="/kurser/">
+              Tillbaka till kompetenser
+            </Link>
+          </div>
         </div>
       </Layout>
     </React.Fragment>

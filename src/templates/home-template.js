@@ -5,9 +5,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { INLINES, BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { Helmet } from "react-helmet"
 const HomeTemplate = contentfulPage => {
-
-
-    // Render richtextoptions
+  // Render richtextoptions
   const options = {
     renderMark: {
       [MARKS.BOLD]: text => <b className="font-bold">{text}</b>,
@@ -40,7 +38,7 @@ const HomeTemplate = contentfulPage => {
           <div className="col-md-6">
             <div className="textContent">
               <div className="textName" style={{ marginBottom: "5vh" }}>
-               {contentfulPage.heading}
+                {contentfulPage.heading}
               </div>
               <div className="textInfo">
                 <div>{renderRichText(contentfulPage.content, options)}</div>
@@ -49,11 +47,20 @@ const HomeTemplate = contentfulPage => {
 
             <div className="myButtonscontainer">
               <button className="myBtn primary">
-                <a href="https://github.com/alexxandereriksson">Github</a>
+                <a
+                  className="btnTag"
+                  href="https://github.com/alexxandereriksson"
+                >
+                  Github
+                </a>
               </button>
               <button className="myBtn secondary">
                 {" "}
-                <Link style={{ color: "white" }} to={"/portfolio"}>
+                <Link
+                  className="btnTag"
+                  style={{ color: "white" }}
+                  to={"/portfolio"}
+                >
                   {" "}
                   Mina projekt
                 </Link>

@@ -5,6 +5,7 @@ import AboutTemplate from "../templates/about-template"
 import HomeTemplate from "../templates/home-template"
 import Portfoliotemplate from "../templates/portfolio-template"
 import ContactTemplate from "../templates/contact-template"
+import Template404 from "../templates/404-template"
 
 // Tar in graphQL data props.
 const Page = ({ data }) => {
@@ -17,6 +18,8 @@ const Page = ({ data }) => {
     switch (contentfulPage.template) {
       case "contact":
         return <ContactTemplate {...contentfulPage} />
+      case "404":
+        return <Template404 {...contentfulPage} />
       case "about":
         return <AboutTemplate {...contentfulPage} />
       case "portfolio":
