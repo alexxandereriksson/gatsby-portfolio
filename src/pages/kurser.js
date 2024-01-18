@@ -54,7 +54,16 @@ const SecondPage = () => {
           {data.allContentfulCourse.edges.map((edge, index) => {
             return (
               <div key={index}>
-                <div className="row" style={{ marginBottom: "1.5rem" }}>
+                <div className="row" style={{ marginBottom: "1rem" }}>
+                <div className="col-sm-6 text-center">
+                    {isClient && (
+                      <GatsbyImage
+                        className="gatsbyImage"
+                        alt={edge.node.heading}
+                        image={edge.node.imageOfCourse.gatsbyImageData}
+                      />
+                    )}
+                  </div>
                   <div className="col-sm-6">
                     <div className="container textContent textInfo text-center">
                      <h1> {edge.node.heading}</h1>
@@ -68,15 +77,7 @@ const SecondPage = () => {
                       </Link>
                     </div>
                   </div>
-                  <div className="col-sm-6 text-center">
-                    {isClient && (
-                      <GatsbyImage
-                        className="gatsbyImage"
-                        alt={edge.node.heading}
-                        image={edge.node.imageOfCourse.gatsbyImageData}
-                      />
-                    )}
-                  </div>
+
                 </div>
               </div>
             )

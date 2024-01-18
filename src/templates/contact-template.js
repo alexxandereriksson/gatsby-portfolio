@@ -33,7 +33,7 @@ const ContactTemplate = contentfulPage => {
         <div className="row" style={{ marginTop: "0vh" }}>
           <div className="col-md-6">
             {/* Content for the second column */}
-            <div className="myBorder" style={{ marginTop: "15vh" }}>
+            <div style={{ marginTop: "15vh" }}>
               {contentfulPage.image && (
                 <GatsbyImage
                   className="heroImage"
