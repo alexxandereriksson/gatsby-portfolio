@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import Logo from "../images/A-Logo.png"
 
 const Header = () => {
+    // hämtar in min useMenu hook och sätter den till variabeln navbar som jag sedan mapar ut i min meny
   const navbar = useMenu()
   return (
     <nav className="navbar navbar-expand-lg navbar-dark  customNavbar">
@@ -32,6 +33,7 @@ const Header = () => {
           <ul className="navbar-nav">
             {navbar.map(({ node }, index) => (
               <li className="nav-item" key={index}>
+                {/* Om node.url inte är lika med "/404", kommer resten av min menu att renderas. Gör detta för att dölja min 404 från menyn. */}
                 {node.url !== "/404" && (
                   <Link className="nav-link" to={node.url}>
                     {node.title}

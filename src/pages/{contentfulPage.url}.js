@@ -29,10 +29,12 @@ const Page = ({ data }) => {
         return <HomeTemplate {...contentfulPage} />
     }
   }
-  // Render the chosen template within a Layout component, passing the contentfulPage object as props.
+
+  // Renderar den valda templaten inom layout componenten, med contenfulPage objektet som en prop.
   return <Layout>{getTemplate(contentfulPage)}</Layout>
 }
 
+// Hämtar data för mina templates
 export const data = graphql`
   query pageQuery($id: String) {
     contentfulPage(id: { eq: $id }) {

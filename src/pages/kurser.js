@@ -4,7 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import { useEffect, useState } from "react"
 import { Helmet } from "react-helmet"
-//sidans namn blir portfolio efter namnet på javascript-filen
+//sidans namn blir kurser efter namnet på javascript-filen
 
 const SecondPage = () => {
   const [isClient, setIsClient] = useState(false)
@@ -55,7 +55,7 @@ const SecondPage = () => {
             return (
               <div key={index}>
                 <div className="row" style={{ marginBottom: "1rem" }}>
-                <div className="col-sm-6 text-center">
+                  <div className="col-sm-6 text-center">
                     {isClient && (
                       <GatsbyImage
                         className="gatsbyImage"
@@ -66,18 +66,19 @@ const SecondPage = () => {
                   </div>
                   <div className="col-sm-6">
                     <div className="container textContent textInfo text-center">
-                     <h1> {edge.node.heading}</h1>
+                      <h1> {edge.node.heading}</h1>
                     </div>
                     <div className="container textContent portfolioText text-center">
                       {edge.node.coursetext}
                     </div>
+                    {/* // Länk till kurser och där slug hämtar in mina enskilda kurser */}
+
                     <div className=" container button">
                       <Link to={`/kurser/${edge.node.slug}`}>
                         Läs mer om kursen
                       </Link>
                     </div>
                   </div>
-
                 </div>
               </div>
             )

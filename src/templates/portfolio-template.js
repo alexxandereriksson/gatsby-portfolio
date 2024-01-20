@@ -4,6 +4,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { Helmet } from "react-helmet"
 
 const Portfoliotemplate = contentfulPage => {
+    // en staticQuery för att hämta mina projekt till min portfolio template
   const data = useStaticQuery(graphql`
     query {
       allContentfulProjects(sort: { createdAt: ASC }) {

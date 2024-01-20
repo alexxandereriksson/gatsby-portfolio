@@ -13,6 +13,7 @@ const ContactTemplate = contentfulPage => {
       [INLINES.HYPERLINK]: (node, children) => {
         const { uri } = node.data
         return (
+            // satt ett nytt classnamn på länken för att det ska stylas efter min style.
           <a href={uri} className="myBtn secondary">
             {children}
           </a>

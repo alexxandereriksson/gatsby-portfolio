@@ -28,10 +28,7 @@ const HomeTemplate = contentfulPage => {
     <>
       <Helmet>
         <title>Homepage</title>
-        <meta
-          name="description"
-          content="this page is for my portfolio items"
-        />
+        <meta name="description" content="this is my homepage" />
       </Helmet>
       <section className="container">
         <div className="row" style={{ marginTop: "5vh" }}>

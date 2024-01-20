@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from "gatsby"
-
+// Hämtar data till min menu hook.
 const useMenu = () => {
   const { allContentfulPage } = useStaticQuery(graphql`
     query {
